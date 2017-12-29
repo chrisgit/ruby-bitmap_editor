@@ -12,7 +12,8 @@ class BitmapEditor
       when 'S'
         puts 'There is no image'
       else
-        puts 'unrecognised command :('
+        command = Unknown.new
+        command.execute
       end
     end
   end
