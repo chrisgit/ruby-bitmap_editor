@@ -1,3 +1,5 @@
+require_relative 'commands/unknown'
+
 ##
 # Bitmap editor, read editing instructions from file
 class BitmapEditor
