@@ -11,7 +11,8 @@ class BitmapEditor
       line = line.chomp
       case line
       when 'S'
-        puts 'There is no image'
+        command = Show.new
+        command.execute
       else
         command = Unknown.new
         command.execute
