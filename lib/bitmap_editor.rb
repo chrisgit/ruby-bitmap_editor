@@ -8,6 +8,7 @@ require_relative 'commands/create'
 class BitmapEditor
   def run(file)
     return puts 'please provide correct file' if file.nil? || !File.exist?(file)
+    @bitmap = nil
 
     File.open(file).each do |line|
       line = line.chomp.split
@@ -18,6 +19,9 @@ class BitmapEditor
       when 'S'
         command = Show.new(*parameters)
         command.execute
+      when 'I'
+        command = Create.new(*parameters)
+        @bitmap = command.execute
       else
         command = Unknown.new(*parameters)
         command.execute

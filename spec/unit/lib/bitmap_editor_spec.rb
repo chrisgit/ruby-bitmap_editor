@@ -25,6 +25,17 @@ describe BitmapEditor do
           expect { BitmapEditor.new.run('examples/unknown.txt') }.to output(/unrecognised command/).to_stdout
         end
       end
+      context 'Create new bitmap image' do
+        it 'returns new bitmap with the correct size' do
+          bitmap_editor = BitmapEditor.new
+          bitmap_editor.run('examples/create.txt')
+          bitmap = bitmap_editor.instance_variable_get(:@bitmap)
+
+          expect(bitmap).not_to be_nil
+          expect(bitmap.columns).to eq(5)
+          expect(bitmap.rows).to eq(6)
+        end
+      end
     end
   end
 end
