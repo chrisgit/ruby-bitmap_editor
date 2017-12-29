@@ -12,5 +12,14 @@ describe BitmapEditor do
         end
       end
     end
+    context 'read file' do
+      context 'Show bitmap' do
+        context 'image not created' do
+          it 'returns "There is no image" message' do
+            expect { BitmapEditor.new.run('examples/show.txt') }.to output(/There is no image/).to_stdout
+          end
+        end
+      end
+    end
   end
 end
