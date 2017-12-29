@@ -20,6 +20,11 @@ describe BitmapEditor do
           end
         end
       end
+      context 'Unknown command' do
+        it 'returns "unrecognised command" message' do
+          expect { BitmapEditor.new.run('examples/unknown.txt') }.to output(/unrecognised command/).to_stdout
+        end
+      end
     end
   end
 end
