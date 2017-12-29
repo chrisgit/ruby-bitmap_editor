@@ -1,4 +1,5 @@
 require_relative 'commands/unknown'
+require_relative 'commands/show'
 
 ##
 # Bitmap editor, read editing instructions from file
