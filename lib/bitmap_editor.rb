@@ -1,3 +1,4 @@
+require_relative 'bitmap'
 require_relative 'commands/unknown'
 require_relative 'commands/show'
 
