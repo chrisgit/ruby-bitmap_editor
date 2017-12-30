@@ -7,8 +7,8 @@ class Bitmap
     @image = Array.new(columns * rows, 'O')
   end
 
-  def dump
-    @image.each_slice(@columns).map(&:join)
+  def clear
+    @image.fill('O')
   end
 
   def colour_pixel(column, row, colour)
@@ -17,6 +17,10 @@ class Bitmap
     raise ArgumentError, 'Colour: The specified colour is not valid' unless valid_colour?(colour)
     row_offset = (row - 1) * @columns
     @image[row_offset + column - 1] = colour
+  end
+
+  def dump
+    @image.each_slice(@columns).map(&:join)
   end
 
   private

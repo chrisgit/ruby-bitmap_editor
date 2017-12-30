@@ -81,4 +81,12 @@ describe 'bitmap' do
       end
     end
   end
+  describe '#clear' do
+    it 'resets bitmap colours to default' do
+      bitmap = BitmapTestHelper.create_and_fill(5, 6, '!')
+      bitmap.clear()
+
+      expect(bitmap.dump).to eq(Array.new(6, 'OOOOO'))
+    end
+  end
 end
