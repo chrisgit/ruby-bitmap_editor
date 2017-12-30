@@ -66,6 +66,19 @@ describe 'bitmap' do
           end
         end
       end
+      context 'valid' do
+        it 'modifies bitmap' do
+          # Edges plus middle
+          bitmap.colour_pixel(1, 1, 'A')
+          bitmap.colour_pixel(5, 1, 'B')
+          bitmap.colour_pixel(3, 3, 'C')
+          bitmap.colour_pixel(1, 6, 'D')
+          bitmap.colour_pixel(5, 6, 'E')
+          output = ['AOOOB', 'OOOOO', 'OOCOO', 'OOOOO', 'OOOOO', 'DOOOE']
+
+          expect(bitmap.dump()).to eq(output)
+        end
+      end
     end
   end
 end
