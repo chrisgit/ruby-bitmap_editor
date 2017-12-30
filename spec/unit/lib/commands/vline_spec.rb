@@ -75,6 +75,17 @@ describe VerticalLine do
           end
         end
       end
+      context 'valid' do
+        let(:bitmap) { Bitmap.new(5, 6) }
+        it 'draws vertical line' do
+          parameters = 'V 4 5 3 Z'.split[1..-1]
+          command = VerticalLine.new(*parameters)
+          command.execute(bitmap)
+          output = ['OOOOO', 'OOOOO', 'OOOZO', 'OOOZO', 'OOOZO', 'OOOOO']
+
+          expect(bitmap.dump).to eq(output)
+        end
+      end
     end
   end
 end
