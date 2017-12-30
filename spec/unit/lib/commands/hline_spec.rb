@@ -41,5 +41,40 @@ describe HorizontalLine do
         expect { command.execute(nil) }.to raise_error(ArgumentError)
       end
     end
+    context 'bitmap is not null' do
+      let(:bitmap) { Bitmap.new(10, 15) }
+      context 'start column' do
+        context 'less than 1' do
+          it 'throws RangeError' do
+            parameters = 'H 0 3 4 Z'.split[1..-1]
+            command = HorizontalLine.new(*parameters)
+            expect { command.execute(bitmap) }.to raise_error(RangeError)
+          end
+        end
+        context 'greater than bitmap columns' do
+          it 'throws RangeError' do
+            parameters = 'H 11 3 4 Z'.split[1..-1]
+            command = HorizontalLine.new(*parameters)
+            expect { command.execute(bitmap) }.to raise_error(RangeError)
+          end
+        end
+      end
+      context 'end column' do
+        context 'less than 1' do
+          it 'throws RangeError' do
+            parameters = 'H 3 0 4 Z'.split[1..-1]
+            command = HorizontalLine.new(*parameters)
+            expect { command.execute(bitmap) }.to raise_error(RangeError)
+          end
+        end
+        context 'greater than bitmap columns' do
+          it 'throws RangeError' do
+            parameters = 'H 3 11 4 Z'.split[1..-1]
+            command = HorizontalLine.new(*parameters)
+            expect { command.execute(bitmap) }.to raise_error(RangeError)
+          end
+        end
+      end
+    end
   end
 end
