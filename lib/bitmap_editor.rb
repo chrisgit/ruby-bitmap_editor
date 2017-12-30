@@ -5,6 +5,7 @@ require_relative 'commands/create'
 require_relative 'commands/colour'
 require_relative 'commands/clear'
 require_relative 'commands/hline'
+require_relative 'commands/vline'
 
 ##
 # Bitmap editor, read editing instructions from file
