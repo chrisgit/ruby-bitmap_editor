@@ -35,6 +35,9 @@ class BitmapEditor
       when 'H'
         command = HorizontalLine.new(*parameters)
         command.execute(@bitmap)
+      when 'V'
+        command = VerticalLine.new(*parameters)
+        command.execute(@bitmap)
       else
         command = Unknown.new(*parameters)
         command.execute(@bitmap)

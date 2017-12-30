@@ -53,6 +53,13 @@ describe BitmapEditor do
           expect { BitmapEditor.new.run('examples/hline.txt') }.to output(bitmap_image).to_stdout
         end
       end
+      context 'Draw a vertical line' do
+        it 'changes pixel colour at X Y1 Y2' do
+          bitmap_image = "OOOOO\nOOZOO\nOOZOO\nOOZOO\nOOZOO\nOOOOO\n"
+
+          expect { BitmapEditor.new.run('examples/vline.txt') }.to output(bitmap_image).to_stdout
+        end
+      end
     end
   end
 end
