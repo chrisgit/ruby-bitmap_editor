@@ -28,7 +28,6 @@ describe Colour do
     end
     context 'bitmap is not null' do
       it 'colours pixel at X Y' do
-        skip 'Currently not implimented'
         bitmap = Bitmap.new(5, 6)
         command = Colour.new(2, 2, 'B')
         command.execute(bitmap)

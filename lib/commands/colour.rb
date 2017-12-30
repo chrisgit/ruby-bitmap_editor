@@ -9,5 +9,6 @@ class Colour
 
   def execute(bitmap = nil)
     raise ArgumentError, 'Colour: Bitmap has not been created' if bitmap.nil?
+    bitmap.colour_pixel(@column, @row, @colour)
   end
 end
