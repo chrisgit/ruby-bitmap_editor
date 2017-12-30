@@ -21,6 +21,15 @@ describe HorizontalLine do
           expect(HorizontalLine.new(*parameters)).to be_a(HorizontalLine)
         end
       end
+      context 'start column greater than end column' do
+        it 'transposes the values' do
+          parameters = 'H 5 2 1 Z'.split[1..-1]
+          hl = HorizontalLine.new(*parameters)
+
+          expect(hl.start_column).to be(2)
+          expect(hl.end_column).to be(5)
+        end
+      end
     end
   end
 
