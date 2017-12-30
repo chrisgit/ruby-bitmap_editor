@@ -12,7 +12,7 @@ require_relative 'commands/vline'
 class BitmapEditor
   def run(file)
     return puts 'please provide correct file' if file.nil? || !File.exist?(file)
-    @bitmap = nil
+    bitmap = nil
 
     File.open(file).each do |line|
       line = line.chomp.split
@@ -22,25 +22,25 @@ class BitmapEditor
       case command
       when 'S'
         command = Show.new(*parameters)
-        command.execute(@bitmap)
+        command.execute(bitmap)
       when 'I'
         command = Create.new(*parameters)
-        @bitmap = command.execute(@bitmap)
+        bitmap = command.execute(bitmap)
       when 'L'
         command = Colour.new(*parameters)
-        command.execute(@bitmap)
+        command.execute(bitmap)
       when 'C'
         command = Clear.new(*parameters)
-        command.execute(@bitmap)
+        command.execute(bitmap)
       when 'H'
         command = HorizontalLine.new(*parameters)
-        command.execute(@bitmap)
+        command.execute(bitmap)
       when 'V'
         command = VerticalLine.new(*parameters)
-        command.execute(@bitmap)
+        command.execute(bitmap)
       else
         command = Unknown.new(*parameters)
-        command.execute(@bitmap)
+        command.execute(bitmap)
       end
     end
   end
