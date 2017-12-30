@@ -46,6 +46,13 @@ describe BitmapEditor do
           expect { BitmapEditor.new.run('examples/clear.txt') }.to output(bitmap_image).to_stdout
         end
       end
+      context 'Draw a horizontal line' do
+        it 'changes pixel colour at X1 X2 Y' do
+          bitmap_image = "OZZZO\nOOOOO\nOOOOO\nOOOOO\nOOOOO\nOOOOO\n"
+
+          expect { BitmapEditor.new.run('examples/hline.txt') }.to output(bitmap_image).to_stdout
+        end
+      end
     end
   end
 end
