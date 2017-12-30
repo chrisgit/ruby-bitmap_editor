@@ -60,6 +60,13 @@ describe BitmapEditor do
           expect { BitmapEditor.new.run('examples/vline.txt') }.to output(bitmap_image).to_stdout
         end
       end
+      context 'integration' do
+        it 'draws image' do
+          bitmap_image = "OOOOO\nOOZZZ\nAWOOO\nOWOOO\nOWOOO\nOWOOO\n"
+
+          expect { BitmapEditor.new.run('examples/integration/basic.txt') }.to output(bitmap_image).to_stdout
+        end
+      end
     end
   end
 end
