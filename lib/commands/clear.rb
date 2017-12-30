@@ -5,5 +5,6 @@ class Clear
 
   def execute(bitmap = nil)
     raise ArgumentError, 'Clear: Bitmap has not been created' if bitmap.nil?
+    bitmap.clear
   end
 end
