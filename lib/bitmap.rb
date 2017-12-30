@@ -6,4 +6,8 @@ class Bitmap
     @rows = rows
     @image = Array.new(columns * rows, 'O')
   end
+
+  def dump
+    @image.each_slice(@columns).map(&:join)
+  end
 end

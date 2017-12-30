@@ -8,4 +8,11 @@ describe 'bitmap' do
       expect(bitmap.rows).to eq(6)
     end
   end
+
+  describe '#dump' do
+    it 'returns array of bitmap rows' do
+      bitmap = Bitmap.new(5, 6)
+      expect(bitmap.dump).to eq(Array.new(6, 'OOOOO'))
+    end
+  end
 end
