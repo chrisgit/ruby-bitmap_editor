@@ -7,6 +7,7 @@ class VerticalLine
     @start_row = start_row.to_i
     @end_row = end_row.to_i
     @colour = colour.to_s
+    @start_row, @end_row = @end_row, @start_row if @start_row > @end_row
   end
 
   def execute(bitmap = nil)

@@ -21,6 +21,15 @@ describe VerticalLine do
           expect(VerticalLine.new(*parameters)).to be_a(VerticalLine)
         end
       end
+      context 'start row greater than end row' do
+        it 'transposes the values' do
+          parameters = 'V 5 7 3 Z'.split[1..-1]
+          hl = VerticalLine.new(*parameters)
+
+          expect(hl.start_row).to be(3)
+          expect(hl.end_row).to be(7)
+        end
+      end
     end
   end
 
