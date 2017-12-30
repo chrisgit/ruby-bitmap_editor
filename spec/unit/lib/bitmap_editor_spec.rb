@@ -32,6 +32,13 @@ describe BitmapEditor do
           expect { BitmapEditor.new.run('examples/create.txt') }.to output(bitmap_image).to_stdout
         end
       end
+      context 'Colour pixel' do
+        it 'changes pixel colour at X Y' do
+          bitmap_image = "OOOOO\nOOOOO\nOOSOO\nOOOOO\nOOOOO\nOOOOO\n"
+
+          expect { BitmapEditor.new.run('examples/colour.txt') }.to output(bitmap_image).to_stdout
+        end
+      end
     end
   end
 end
