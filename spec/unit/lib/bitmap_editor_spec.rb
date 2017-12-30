@@ -39,6 +39,13 @@ describe BitmapEditor do
           expect { BitmapEditor.new.run('examples/colour.txt') }.to output(bitmap_image).to_stdout
         end
       end
+      context 'Clear the image' do
+        it 'reset the bitmap image to default colour' do
+          bitmap_image = "OOOOO\n" * 6
+
+          expect { BitmapEditor.new.run('examples/clear.txt') }.to output(bitmap_image).to_stdout
+        end
+      end
     end
   end
 end

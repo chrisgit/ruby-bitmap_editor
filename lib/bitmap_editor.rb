@@ -27,6 +27,9 @@ class BitmapEditor
       when 'L'
         command = Colour.new(*parameters)
         command.execute(@bitmap)
+      when 'C'
+        command = Clear.new(*parameters)
+        command.execute(@bitmap)
       else
         command = Unknown.new(*parameters)
         command.execute(@bitmap)
