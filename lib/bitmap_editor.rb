@@ -18,13 +18,13 @@ class BitmapEditor
       case command
       when 'S'
         command = Show.new(*parameters)
-        command.execute
+        command.execute(@bitmap)
       when 'I'
         command = Create.new(*parameters)
-        @bitmap = command.execute
+        @bitmap = command.execute(@bitmap)
       else
         command = Unknown.new(*parameters)
-        command.execute
+        command.execute(@bitmap)
       end
     end
   end
