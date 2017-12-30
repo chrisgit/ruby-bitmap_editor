@@ -3,6 +3,7 @@ require_relative 'commands/unknown'
 require_relative 'commands/show'
 require_relative 'commands/create'
 require_relative 'commands/colour'
+require_relative 'commands/clear'
 
 ##
 # Bitmap editor, read editing instructions from file
