@@ -18,10 +18,8 @@ class BitmapEditor
     bitmap = nil
 
     File.open(file).each do |line|
-      line = line.chomp.split
-      edit_command = line[0]
-      parameters = line[1..-1]
-      klass = @commands.fetch(edit_command, Unknown)
+      instruction, parameters = fetch_instruction(line)
+      klass = @commands.fetch(instruction, Unknown)
       command = klass.new(*parameters)
       updated_bitmap = command.execute(bitmap)
       bitmap = updated_bitmap if updated_bitmap.is_a?(Bitmap)
@@ -40,5 +38,10 @@ class BitmapEditor
       'V' => VerticalLine
     }
     @commands.default = Unknown
+  end
+
+  def fetch_instruction(instruction)
+    edit_command = instruction.chomp.split
+    return edit_command[0], edit_command[1..-1]
   end
 end
