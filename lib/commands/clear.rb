@@ -4,7 +4,7 @@ class Clear
   def initialize(); end
 
   def execute(bitmap = NilBitmap.new)
-    bitmap = NilBitmap.new if bitmap.nil?
+    bitmap ||= NilBitmap.new
     bitmap.clear
   end
 end

@@ -12,7 +12,7 @@ class HorizontalLine
   end
 
   def execute(bitmap = NilBitmap.new)
-    bitmap = NilBitmap.new if bitmap.nil?
+    bitmap ||= NilBitmap.new
     raise ArgumentError, 'HorizontalLine: Bitmap has not been created' if bitmap.is_a? NilBitmap
     raise RangeError, 'Horizontal Line: Start Column is out of range' if @start_column < 1 || @start_column > bitmap.columns
     raise RangeError, 'Horizontal Line: End Column is out of range' if @end_column < 1 || @end_column > bitmap.columns

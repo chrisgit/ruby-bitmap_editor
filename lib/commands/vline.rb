@@ -11,7 +11,7 @@ class VerticalLine
   end
 
   def execute(bitmap = NilBitmap.new)
-    bitmap = NilBitmap.new if bitmap.nil?
+    bitmap ||= NilBitmap.new
     raise ArgumentError, 'VerticalLine: Bitmap has not been created' if bitmap.is_a? NilBitmap
     raise RangeError, 'Vertical Line: Start Row is out of range' if @start_row < 1 || @start_row > bitmap.rows
     raise RangeError, 'Vertical Line: End Row is out of range' if @end_row < 1 || @end_row > bitmap.rows
