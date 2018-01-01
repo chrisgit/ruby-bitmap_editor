@@ -3,8 +3,8 @@
 class Show
   def initialize(); end
 
-  def execute(bitmap = nil)
-    return puts 'There is no image' if bitmap.nil?
+  def execute(bitmap = NilBitmap.new)
+    bitmap = NilBitmap.new if bitmap.nil?
     puts bitmap.dump
   end
 end
