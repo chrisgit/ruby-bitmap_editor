@@ -7,8 +7,8 @@ class Colour
     @colour = colour.to_s
   end
 
-  def execute(bitmap = nil)
-    raise ArgumentError, 'Colour: Bitmap has not been created' if bitmap.nil?
+  def execute(bitmap = NilBitmap.new)
+    bitmap = NilBitmap.new if bitmap.nil?
     bitmap.colour_pixel(@column, @row, @colour)
   end
 end
