@@ -16,7 +16,7 @@ class BitmapEditor
 
   def run(file)
     return puts 'please provide correct file' if file.nil? || !File.exist?(file)
-    bitmap = nil
+    bitmap = NilBitmap.new
 
     File.open(file).each do |line|
       instruction, parameters = fetch_instruction(line)
