@@ -3,8 +3,8 @@
 class Clear
   def initialize(); end
 
-  def execute(bitmap = nil)
-    raise ArgumentError, 'Clear: Bitmap has not been created' if bitmap.nil?
+  def execute(bitmap = NilBitmap.new)
+    bitmap = NilBitmap.new if bitmap.nil?
     bitmap.clear
   end
 end
