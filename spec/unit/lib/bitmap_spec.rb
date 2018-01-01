@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'bitmap' do
+describe Bitmap do
   let (:bitmap) { Bitmap.new(5, 6) }
   describe '#initialize' do
     it 'creates new bitmap of size M N' do
