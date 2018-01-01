@@ -14,8 +14,18 @@ class HorizontalLine
   def execute(bitmap = NilBitmap.new)
     bitmap ||= NilBitmap.new
     raise ArgumentError, 'HorizontalLine: Bitmap has not been created' if bitmap.is_a? NilBitmap
-    raise RangeError, 'Horizontal Line: Start Column is out of range' if @start_column < 1 || @start_column > bitmap.columns
-    raise RangeError, 'Horizontal Line: End Column is out of range' if @end_column < 1 || @end_column > bitmap.columns
+    range_check(bitmap.columns)
+    draw_horizontal(bitmap)
+  end
+
+  private
+
+  def range_check(bitmap_columns)
+    raise RangeError, 'Horizontal Line: Start Column is out of range' if @start_column < 1 || @start_column > bitmap_columns
+    raise RangeError, 'Horizontal Line: End Column is out of range' if @end_column < 1 || @end_column > bitmap_columns
+  end
+
+  def draw_horizontal(bitmap)
     @start_column.upto(@end_column) do |column|
       bitmap.colour_pixel(column, @row, @colour)
     end
