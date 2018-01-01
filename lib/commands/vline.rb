@@ -13,8 +13,18 @@ class VerticalLine
   def execute(bitmap = NilBitmap.new)
     bitmap ||= NilBitmap.new
     raise ArgumentError, 'VerticalLine: Bitmap has not been created' if bitmap.is_a? NilBitmap
-    raise RangeError, 'Vertical Line: Start Row is out of range' if @start_row < 1 || @start_row > bitmap.rows
-    raise RangeError, 'Vertical Line: End Row is out of range' if @end_row < 1 || @end_row > bitmap.rows
+    range_check(bitmap.rows)
+    draw_vertical(bitmap)
+  end
+
+  private
+
+  def range_check(bitmap_rows)
+    raise RangeError, 'Vertical Line: Start Row is out of range' if @start_row < 1 || @start_row > bitmap_rows
+    raise RangeError, 'Vertical Line: End Row is out of range' if @end_row < 1 || @end_row > bitmap_rows
+  end
+
+  def draw_vertical(bitmap)
     @start_row.upto(@end_row) do |row|
       bitmap.colour_pixel(@column, row, @colour)
     end
