@@ -1,7 +1,7 @@
 ##
 # Unknown instruction
 class Unknown
-  def initialize(*args)
+  def initialize(*_)
   end
 
   def execute(_ = nil)
