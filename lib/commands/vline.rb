@@ -10,8 +10,9 @@ class VerticalLine
     @start_row, @end_row = @end_row, @start_row if @start_row > @end_row
   end
 
-  def execute(bitmap = nil)
-    raise ArgumentError, 'Vertical Line: Bitmap has not been created' if bitmap.nil?
+  def execute(bitmap = NilBitmap.new)
+    bitmap = NilBitmap.new if bitmap.nil?
+    raise ArgumentError, 'VerticalLine: Bitmap has not been created' if bitmap.is_a? NilBitmap
     raise RangeError, 'Vertical Line: Start Row is out of range' if @start_row < 1 || @start_row > bitmap.rows
     raise RangeError, 'Vertical Line: End Row is out of range' if @end_row < 1 || @end_row > bitmap.rows
     @start_row.upto(@end_row) do |row|
