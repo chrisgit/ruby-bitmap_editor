@@ -55,18 +55,6 @@ describe Bitmap do
           expect { bitmap.colour_pixel(3, 3, 'C') }.not_to raise_error
         end
       end
-      context 'colour' do
-        context 'not a single character' do
-          it 'throws ArgumentError' do
-            expect { bitmap.colour_pixel(3, 3, 'Blue') }.to raise_error(ArgumentError)
-          end
-        end
-        context 'not upper case' do
-          it 'throws ArgumentError' do
-            expect { bitmap.colour_pixel(3, 3, 'b') }.to raise_error(ArgumentError)
-          end
-        end
-      end
       context 'valid' do
         it 'modifies bitmap' do
           # Edges plus middle
