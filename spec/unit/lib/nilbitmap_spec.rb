@@ -14,14 +14,28 @@ describe NilBitmap do
       expect(nilbitmap.dump).to eq('There is no image')
     end
   end
+
   describe '#colour_pixel' do
     it 'throws ArgumentError"' do
       expect { nilbitmap.colour_pixel(1, 1, 'O') }.to raise_error(ArgumentError)
     end
   end
+
   describe '#clear' do
     it 'throws ArgumentError"' do
       expect { nilbitmap.clear }.to raise_error(ArgumentError)
+    end
+  end
+
+  describe '#draw_horizontal' do
+    it 'throws ArgumentError"' do
+      expect { nilbitmap.draw_horizontal(1, 2, 3, 'O') }.to raise_error(ArgumentError)
+    end
+  end
+
+  describe '#draw_vertical' do
+    it 'throws ArgumentError"' do
+      expect { nilbitmap.draw_vertical(1, 2, 3, 'O') }.to raise_error(ArgumentError)
     end
   end
 end
