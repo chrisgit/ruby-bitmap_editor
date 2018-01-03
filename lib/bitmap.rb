@@ -1,14 +1,26 @@
 # Class to represent a bitmap
 class Bitmap
-  attr_reader :rows, :columns
+  attr_reader :range, :columns, :rows
   def initialize(columns, rows)
     @columns = columns
     @rows = rows
+    @range = Range.new(1, 1, columns, rows)
     @image = Array.new(columns * rows, 'O')
   end
 
   def clear
     @image.fill('O')
+  end
+
+  def draw(range, colour)
+    raise RangeError, 'Bitmap: columns or rows out of bounds' unless @range.bounds?(range)
+    colour_check(colour)
+    # Also add a check for Colour
+    range.start_row.upto(range.end_row) do |row|
+      range.start_column.upto(range.end_column) do |column|
+        set_pixel_colour(column, row, colour)
+      end
+    end
   end
 
   def colour_pixel(column, row, colour)
