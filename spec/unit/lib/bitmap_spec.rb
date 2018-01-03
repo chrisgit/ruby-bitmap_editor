@@ -54,43 +54,6 @@ describe Bitmap do
     end
   end
 
-  describe '#draw_horizontal' do
-    context 'parameters' do
-      context 'start column' do
-        context 'less than 1' do
-          it 'throws RangeError' do
-            expect { bitmap.draw_horizontal(0, 3, 4, 'O') }.to raise_error(RangeError)
-          end
-        end
-        context 'greater than bitmap columns' do
-          it 'throws RangeError' do
-            expect { bitmap.draw_horizontal(11, 3, 4, 'O') }.to raise_error(RangeError)
-          end
-        end
-      end
-      context 'end column' do
-        context 'less than 1' do
-          it 'throws RangeError' do
-            expect { bitmap.draw_horizontal(3, 0, 4, 'O') }.to raise_error(RangeError)
-          end
-        end
-        context 'greater than bitmap columns' do
-          it 'throws RangeError' do
-            expect { bitmap.draw_horizontal(2, 11, 4, 'O') }.to raise_error(RangeError)
-          end
-        end
-      end
-      context 'valid' do
-        it 'draws horizontal line' do
-          bitmap.draw_horizontal(1, 5, 3, 'Z')
-          output = ['OOOOO', 'OOOOO', 'ZZZZZ', 'OOOOO', 'OOOOO', 'OOOOO']
-
-          expect(bitmap.dump).to eq(output)
-        end
-      end
-    end
-  end
-
   describe '#draw_vertical' do
     context 'start row' do
       context 'less than 1' do
