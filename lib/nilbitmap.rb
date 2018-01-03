@@ -12,12 +12,16 @@ class NilBitmap
     raise ArgumentError, 'Clear: Bitmap has not been created'
   end
 
+  def draw
+    raise ArgumentError, 'Draw: Bitmap has not been created'
+  end
+
   def colour_pixel(_, _, _)
     raise ArgumentError, 'Colour: Bitmap has not been created'
   end
 
   def draw_horizontal(_, _, _, _)
-    raise ArgumentError, 'Draw Horizontal: Bitmap has not been created' 
+    raise ArgumentError, 'Draw Horizontal: Bitmap has not been created'
   end
 
   def draw_vertical(_, _, _, _)
