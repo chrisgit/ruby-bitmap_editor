@@ -19,58 +19,6 @@ describe Bitmap do
     end
   end
 
-  describe '#colour_pixel' do
-    let(:bitmap) { Bitmap.new(5, 6) }
-    context 'parameters' do
-      context 'column' do
-        context 'less than 1' do
-          it 'throws RangeError' do
-            expect { bitmap.colour_pixel(0, 3, 'C') }.to raise_error(RangeError)
-          end
-        end
-
-        context 'greater than bitmap columns' do
-          it 'throws RangeError' do
-            expect { bitmap.colour_pixel(8, 3, 'C') }.to raise_error(RangeError)
-          end
-        end
-      end
-
-      context 'row' do
-        context 'less than 1' do
-          it 'throws RangeError' do
-            expect { bitmap.colour_pixel(3, 0, 'C') }.to raise_error(RangeError)
-          end
-        end
-
-        context 'greater than bitmap rows' do
-          it 'throws RangeError' do
-            expect { bitmap.colour_pixel(3, 8, 'C') }.to raise_error(RangeError)
-          end
-        end
-      end
-
-      context 'columns and rows within bounds' do
-        it 'does not throw an error' do
-          expect { bitmap.colour_pixel(3, 3, 'C') }.not_to raise_error
-        end
-      end
-      context 'valid' do
-        it 'modifies bitmap' do
-          # Edges plus middle
-          bitmap.colour_pixel(1, 1, 'A')
-          bitmap.colour_pixel(5, 1, 'B')
-          bitmap.colour_pixel(3, 3, 'C')
-          bitmap.colour_pixel(1, 6, 'D')
-          bitmap.colour_pixel(5, 6, 'E')
-          output = ['AOOOB', 'OOOOO', 'OOCOO', 'OOOOO', 'OOOOO', 'DOOOE']
-
-          expect(bitmap.dump()).to eq(output)
-        end
-      end
-    end
-  end
-
   describe '#draw' do
     let(:bitmap) { Bitmap.new(5, 6) }
     context 'range out of bounds' do

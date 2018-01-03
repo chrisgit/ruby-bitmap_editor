@@ -23,13 +23,6 @@ class Bitmap
     end
   end
 
-  def colour_pixel(column, row, colour)
-    column_range_check(column, column)
-    row_range_check(row, row)
-    colour_check(colour)
-    set_pixel_colour(column, row, colour)
-  end
-
   def draw_horizontal(start_column, end_column, row, colour)
     start_column, end_column = end_column, start_column if start_column > end_column
     column_range_check(start_column, end_column)
