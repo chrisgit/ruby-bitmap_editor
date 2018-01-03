@@ -23,14 +23,6 @@ class Bitmap
     end
   end
 
-  def draw_vertical(column, start_row, end_row, colour)
-    start_row, end_row = end_row, start_row if start_row > end_row
-    column_range_check(column, column)
-    row_range_check(start_row, end_row)
-    colour_check(colour)
-    dvertical(column, start_row, end_row, colour)
-  end
-
   def dump
     @image.each_slice(@columns).map(&:join)
   end
