@@ -4,7 +4,7 @@ class Bitmap
   def initialize(columns, rows)
     @columns = columns
     @rows = rows
-    @range = Range.new(1, 1, columns, rows)
+    @range = BitmapRange.new(1, 1, columns, rows)
     @image = Array.new(columns * rows, 'O')
   end
 
