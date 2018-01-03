@@ -3,21 +3,9 @@ require 'spec_helper'
 describe Create do
   describe '#initialize' do
     context 'parameters' do
-      context 'too many passed' do
-        it 'throws ArgumentError' do
-          parameters = 'I 3 5 example'.split[1..-1]
-          expect { Create.new(*parameters) }.to raise_error(ArgumentError)
-        end
-      end
+      it_behaves_like 'class requires exact parameters', ['3', '5', 'Hello']
 
-      context 'not enough passed' do
-        it 'throws ArgumentError' do
-          parameters = 'I 3'.split[1..-1]
-          expect { Create.new(*parameters) }.to raise_error(ArgumentError)
-        end
-      end
-
-      context 'columns' do
+      context 'column value' do
         context 'less than 1' do
           it 'throws ArgumentError' do
             parameters = 'I 0 5'.split[1..-1]

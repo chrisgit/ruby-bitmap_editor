@@ -3,18 +3,7 @@ require 'spec_helper'
 describe Colour do
   describe '#initialize' do
     context 'parameters' do
-      context 'too many passed' do
-        it 'throws ArgumentError' do
-          parameters = 'L 3 5 C example'.split[1..-1]
-          expect { Colour.new(*parameters) }.to raise_error(ArgumentError)
-        end
-      end
-      context 'not enough parameter passed' do
-        it 'throws ArgumentError' do
-          parameters = 'L 3 5'.split[1..-1]
-          expect { Colour.new(*parameters) }.to raise_error(ArgumentError)
-        end
-      end
+      it_behaves_like 'class requires exact parameters', ['3', '5', 'C', 'Hello']
     end
   end
 

@@ -3,21 +3,7 @@ require 'spec_helper'
 describe HorizontalLine do
   describe '#initialize' do
     context 'parameters' do
-      context 'not enough passed' do
-        it 'throws ArgumentError' do
-          expect { HorizontalLine.new(*['1']) }.to raise_error(ArgumentError)
-        end
-      end
-      context 'too many passed' do
-        it 'throws ArgumentError' do
-          expect { HorizontalLine.new(*['1', '3', '4', 'Z', 'Hello']) }.to raise_error(ArgumentError)
-        end
-      end
-      context 'exact number passed' do
-        it 'returns object type of HorizontalLine' do
-          expect(HorizontalLine.new(*['1', '5', '4', 'z'])).to be_a(HorizontalLine)
-        end
-      end
+      it_behaves_like 'class requires exact parameters', ['1', '3', '4', 'Z', 'Hello']
     end
   end
 

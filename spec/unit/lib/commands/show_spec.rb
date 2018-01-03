@@ -3,18 +3,7 @@ require 'spec_helper'
 describe Show do
   describe '#initialize' do
     context 'parameters' do
-      context 'too many passed' do
-        it 'throws ArgumentError' do
-          parameters = 'S 5'.split[1..-1]
-          expect { Show.new(*parameters) }.to raise_error(ArgumentError)
-        end
-      end
-      context 'exact number passed' do
-        it 'returns object type of Show' do
-          parameters = 'S'.split[1..-1]
-          expect(Show.new(*parameters)).to be_a(Show)
-        end
-      end
+      it_behaves_like 'class requires exact parameters', ['5']
     end
   end
 

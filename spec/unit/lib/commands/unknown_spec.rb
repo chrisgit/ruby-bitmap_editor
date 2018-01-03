@@ -5,14 +5,12 @@ describe Unknown do
     context 'parameters' do
       context 'no parameters passed' do
         it 'returns object type of Unknown' do
-          instruction = ''.split
-          expect(Unknown.new(*instruction)).to be_a(Unknown)
+          expect(Unknown.new(*[])).to be_a(Unknown)
         end
       end
       context 'lots of parameters passed' do
         it 'returns object type of Unknown' do
-          instruction = 'One Two Three Four Five Six Seven Eight Nine Ten'.split
-          expect(Unknown.new(*instruction)).to be_a(Unknown)
+          expect(Unknown.new(*['1', '2', '3', '4', '5', '6', '7', '8', '9'])).to be_a(Unknown)
         end
       end
     end
