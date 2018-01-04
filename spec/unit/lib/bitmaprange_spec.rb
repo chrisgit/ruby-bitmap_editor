@@ -1,6 +1,4 @@
 require 'spec_helper'
-require 'support/bitmaprange'
-require 'pry'
 
 describe BitmapRange do
   describe '#initialize' do
@@ -20,23 +18,23 @@ describe BitmapRange do
   end
 
   describe '#bounds?' do
-    out_of_range('start column less', BitmapRange.new(1,1,20,20), BitmapRange.new(0, 1, 20, 20))
-    out_of_range('end column less', BitmapRange.new(1,1,20,20), BitmapRange.new(1, 1, 0, 20))
-    out_of_range('start row less', BitmapRange.new(1,1,20,20), BitmapRange.new(1, 0, 20, 20))
-    out_of_range('end row less', BitmapRange.new(1,1,20,20), BitmapRange.new(1, 1, 20, 0))
+    let(:reference_range) { BitmapRange.new(1,1,20,20) }
+    it_behaves_like 'range is out of bounds', 'start column zero', BitmapRange.new(0, 1, 20, 20)
+    it_behaves_like 'range is out of bounds', 'end column zero', BitmapRange.new(1, 1, 0, 20)
+    it_behaves_like 'range is out of bounds', 'start row zero', BitmapRange.new(1, 0, 20, 20)
+    it_behaves_like 'range is out of bounds', 'end row zero', BitmapRange.new(1, 1, 20, 0)
 
-    out_of_range('start column more', BitmapRange.new(1,1,20,20), BitmapRange.new(21, 1, 21, 20))
-    out_of_range('end column more', BitmapRange.new(1,1,20,20), BitmapRange.new(1, 1, 21, 20))
-    out_of_range('start row more', BitmapRange.new(1,1,20,20), BitmapRange.new(1, 21, 20, 21))
-    out_of_range('end row more', BitmapRange.new(1,1,20,20), BitmapRange.new(1, 1, 20, 21))
+    it_behaves_like 'range is out of bounds', 'start column greater than other', BitmapRange.new(21, 1, 21, 20)
+    it_behaves_like 'range is out of bounds', 'end column greater than other', BitmapRange.new(1, 1, 21, 20)
+    it_behaves_like 'range is out of bounds', 'start row greater than other', BitmapRange.new(1, 21, 20, 21)
+    it_behaves_like 'range is out of bounds', 'end row greater than other', BitmapRange.new(1, 1, 20, 21)
 
-    out_of_range('column overlapping', BitmapRange.new(1,1,20,20), BitmapRange.new(5, 1, 25, 20))
-    out_of_range('row overlapping', BitmapRange.new(1,1,20,20), BitmapRange.new(1, 5, 20, 25))
+    it_behaves_like 'range is out of bounds', 'column range overlapping', BitmapRange.new(5, 1, 25, 20)
+    it_behaves_like 'range is out of bounds', 'row range overlapping', BitmapRange.new(1, 5, 20, 25)
 
     context 'in range' do
-      let(:range) { BitmapRange.new(1,1,20,20) }
       it 'returns true' do
-        expect(range.bounds?(range)).to eq(true)
+        expect(reference_range.bounds?(reference_range)).to eq(true)
       end
     end
   end
