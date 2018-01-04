@@ -155,7 +155,7 @@ The second iteration of this kata attempted to use blackbox testing only; the pu
 
 For the third and final attempt I tried to test against only public methods, to assert that the bitmap has been updated some of the tests call a method on the bitmap class that outputs an array of rows (hline_spec). In some cases such as the test for the bitmap clear functionality (bitmap_spec) we have to set the bitmap to something other than the default and this requires knowing that the bitmap is stored as a single dimension array.
 
-The bitmap_editor_spec resembles more of a set of integration tests; the tests open a file, carry out instructions and display the result; these tests will all fail if Create or Show commands fail - so it fails to isolate each component.
+The bitmap_editor_spec resembles more of a set of integration tests; the tests open a file, carry out instructions and display the result; these tests will all fail if Create or Show commands fail - so it fails to isolate each component. However I've treated the bitmap editor as the public facing component of the application, the other components I'd decided were private or hidden from direct control; on that basis I refactored the private class code to reduce duplication distilling it to something that is reasonable.
 
 Authors
 -------------------
