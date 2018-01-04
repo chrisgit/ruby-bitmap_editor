@@ -6,46 +6,15 @@ describe Create do
       it_behaves_like 'class requires exact parameters', ['3', '5']
 
       context 'column value' do
-
-        context 'less than 1' do
-          it 'throws ArgumentError' do
-            parameters = 'I 0 5'.split[1..-1]
-            expect { Create.new(*parameters) }.to raise_error(ArgumentError)
-          end
-        end
-        context 'greater than 250' do
-          it 'throws ArgumentError' do
-            parameters = 'I 251 5'.split[1..-1]
-            expect { Create.new(*parameters) }.to raise_error(ArgumentError)
-          end
-        end
-        context 'not a number' do
-          it 'throws ArgumentError' do
-            parameters = 'I Hello 5'.split[1..-1]
-            expect { Create.new(*parameters) }.to raise_error(ArgumentError)
-          end
-        end
+        it_throws_when 'less than one', ['I', 0, 5]
+        it_throws_when 'greater than maximum', ['I', 251, 5]
+        it_throws_when 'not a number', ['I', 'Hello', 5]
       end
 
       context 'rows' do
-        context 'less than 1' do
-          it 'throws ArgumentError' do
-            parameters = 'I 5 0'.split[1..-1]
-            expect { Create.new(*parameters) }.to raise_error(ArgumentError)
-          end
-        end
-        context 'rows greater than 250' do
-          it 'throws ArgumentError' do
-            parameters = 'I 5 251'.split[1..-1]
-            expect { Create.new(*parameters) }.to raise_error(ArgumentError)
-          end
-        end
-        context 'not a number' do
-          it 'throws ArgumentError' do
-            parameters = 'I 5 World'.split[1..-1]
-            expect { Create.new(*parameters) }.to raise_error(ArgumentError)
-          end
-        end
+        it_throws_when 'less than one', ['I', 5, 0]
+        it_throws_when 'greater than maximum', ['I', 5, 251]
+        it_throws_when 'not a number', ['I', 5, 'Hello']
       end
     end
   end

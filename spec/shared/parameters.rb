@@ -22,3 +22,23 @@ shared_examples 'class requires exact parameters' do |params|
     end
   end
 end
+
+##
+# Classes that require column / row value checks
+shared_examples 'less than one' do |params|
+  it 'ArgumentError' do
+    expect { described_class.new(*params) }.to raise_error(ArgumentError)
+  end
+end
+
+shared_examples 'greater than maximum' do |params|
+  it 'ArgumentError' do
+    expect { described_class.new(*params) }.to raise_error(ArgumentError)
+  end
+end
+
+shared_examples 'not a number' do |params|
+  it 'ArgumentError' do
+    expect { described_class.new(*params) }.to raise_error(ArgumentError)
+  end
+end
