@@ -32,16 +32,4 @@ describe NilBitmap do
       expect { nilbitmap.draw(Range.new(1,1,5,5), 'O') }.to raise_error(ArgumentError)
     end
   end
-
-  describe '#draw_horizontal' do
-    it 'throws ArgumentError"' do
-      expect { nilbitmap.draw_horizontal(1, 2, 3, 'O') }.to raise_error(ArgumentError)
-    end
-  end
-
-  describe '#draw_vertical' do
-    it 'throws ArgumentError"' do
-      expect { nilbitmap.draw_vertical(1, 2, 3, 'O') }.to raise_error(ArgumentError)
-    end
-  end
 end
