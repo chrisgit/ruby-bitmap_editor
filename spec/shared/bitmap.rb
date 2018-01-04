@@ -21,6 +21,12 @@ shared_examples 'bitmap initialized' do |columns, rows|
   end
 end
 
+shared_examples 'bitmap draw parameters invalid' do |params, error|
+  it "throws #{error}" do
+    expect { bitmap.draw(*params) }.to raise_error(error)
+  end
+end
+
 shared_examples 'file is invalid' do |file|
   context file || 'nil' do
     it 'returns "please provide correct file" message' do

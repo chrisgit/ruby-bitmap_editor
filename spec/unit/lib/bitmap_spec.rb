@@ -4,7 +4,6 @@ describe Bitmap do
   let (:bitmap) { Bitmap.new(5, 6) }
 
   it_behaves_like 'bitmap'
-
   describe '#initialize' do
     it_behaves_like 'bitmap initialized', 5, 6
 
@@ -21,18 +20,15 @@ describe Bitmap do
 
   describe '#draw' do
     let(:bitmap) { Bitmap.new(5, 6) }
+
     context 'range out of bounds' do
-      it 'throws RangeError' do
-        range = BitmapRange.new(3,3,7,7)
-        expect { bitmap.draw(range, 'C') }.to raise_error(RangeError)
-      end
+      it_behaves_like 'bitmap draw parameters invalid', [BitmapRange.new(3,3,7,7), 'C'], RangeError
     end
+
     context 'colour not valid' do
-      it 'throws ArgumentError' do
-        range = BitmapRange.new(3,3,4,5)
-        expect { bitmap.draw(range, 'Blue') }.to raise_error(ArgumentError)
-      end
+      it_behaves_like 'bitmap draw parameters invalid', [BitmapRange.new(3,3,4,5), 'Blue'], ArgumentError
     end
+
     context 'valid' do
       it 'modifies bitmap' do
         range = BitmapRange.new(2,2,4,4)
