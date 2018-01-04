@@ -6,15 +6,15 @@ describe Create do
       it_behaves_like 'class requires exact parameters', ['3', '5']
 
       context 'column value' do
-        it_throws_when 'parameter value', 'less than one', ['I', 0, 5]
-        it_throws_when 'parameter value', 'greater than maximum', ['I', 251, 5]
-        it_throws_when 'parameter value', 'not a number', ['I', 'Hello', 5]
+        it_throws_when 'invalid constructor parameters', 'less than one', ['I', 0, 5]
+        it_throws_when 'invalid constructor parameters', 'greater than maximum', ['I', 251, 5]
+        it_throws_when 'invalid constructor parameters', 'not a number', ['I', 'Hello', 5]
       end
 
       context 'rows' do
-        it_throws_when 'parameter value', 'less than one', ['I', 5, 0]
-        it_throws_when 'parameter value', 'greater than maximum', ['I', 5, 251]
-        it_throws_when 'parameter value', 'not a number', ['I', 5, 'Hello']
+        it_throws_when 'invalid constructor parameters', 'less than one', ['I', 5, 0]
+        it_throws_when 'invalid constructor parameters', 'greater than maximum', ['I', 5, 251]
+        it_throws_when 'invalid constructor parameters', 'not a number', ['I', 5, 'Hello']
       end
     end
   end

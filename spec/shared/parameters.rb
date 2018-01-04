@@ -25,7 +25,7 @@ end
 
 ##
 # Classes that require column / row value checks
-shared_examples 'parameter value' do |test_context, params|
+shared_examples 'invalid constructor parameters' do |test_context, params|
   context test_context do
     it 'ArgumentError' do
       expect { described_class.new(*params) }.to raise_error(ArgumentError)
