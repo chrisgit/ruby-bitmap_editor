@@ -42,13 +42,13 @@ class BitmapEditor
   end
 
   def run_command(line, bitmap)
-    instruction = Command.new(line)
-    command = fetch_command(instruction)
+    line = line.chomp.split
+    command = fetch_command(line[0], line[1..-1])
     command.execute(bitmap)
   end
 
-  def fetch_command(instruction)
-    klass = @commands.fetch(instruction.command, Unknown)
-    klass.new(*instruction.parameters)
+  def fetch_command(command, parameters)
+    klass = @commands.fetch(command, Unknown)
+    klass.new(*parameters)
   end
 end
