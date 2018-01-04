@@ -10,8 +10,7 @@ describe Colour do
   describe '#execute' do
     context 'bitmap is null' do
       it 'throws ArgumentError"' do
-        parameters = 'L 5 6 C'.split[1..-1]
-        command = Colour.new(*parameters)
+        command = Colour.new(*['5', '6', 'C'])
         expect { command.execute(nil) }.to raise_error(ArgumentError)
       end
     end

@@ -21,8 +21,7 @@ describe Create do
 
   describe '#execute' do
     it 'returns new bitmap' do
-      parameters = 'I 5 6'.split[1..-1]
-      command = Create.new(*parameters)
+      command = Create.new(*['5', '6'])
       bitmap = command.execute
 
       expect(bitmap.columns).to eq(5)

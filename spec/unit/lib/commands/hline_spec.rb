@@ -17,8 +17,7 @@ describe HorizontalLine do
     context 'bitmap is not null' do
       let(:bitmap) { Bitmap.new(5, 6) }
       it 'draws horizontal line' do
-        parameters = 'H 1 5 3 Z'.split[1..-1]
-        command = HorizontalLine.new(*parameters)
+        command = HorizontalLine.new(*['1', '5', '3', 'Z'])
         command.execute(bitmap)
         output = ['OOOOO', 'OOOOO', 'ZZZZZ', 'OOOOO', 'OOOOO', 'OOOOO']
 
