@@ -2,14 +2,12 @@ require 'spec_helper'
 
 describe NilBitmap do
   let (:bitmap) { NilBitmap.new }
-  describe '#initialize' do
-    it 'creates new bitmap of size 0 0' do
-      expect(bitmap.columns).to eq(0)
-      expect(bitmap.rows).to eq(0)
-    end
-  end
 
   it_behaves_like 'bitmap'
+
+  describe '#initialize' do
+    it_behaves_like 'bitmap initialized', 0, 0
+  end
 
   describe '#dump' do
     it 'returns "There is no image"' do

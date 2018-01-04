@@ -14,6 +14,13 @@ shared_examples 'bitmap' do
   end
 end
 
+shared_examples 'bitmap initialized' do |columns, rows|
+  it "creates new bitmap of size #{columns} - #{rows}" do
+    expect(bitmap.columns).to eq(columns)
+    expect(bitmap.rows).to eq(rows)
+  end
+end
+
 shared_examples 'file is invalid' do |file|
   context file || 'nil' do
     it 'returns "please provide correct file" message' do
