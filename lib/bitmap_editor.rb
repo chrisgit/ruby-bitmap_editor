@@ -1,6 +1,5 @@
 require_relative 'bitmap'
 require_relative 'nilbitmap'
-require_relative 'command'
 require_relative 'pixelcolour'
 require_relative 'bitmaprange'
 require_relative 'commands/unknown'
