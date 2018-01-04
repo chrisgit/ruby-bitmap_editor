@@ -5,7 +5,9 @@ class Colour
 
   def initialize(column, row, colour)
     @colour = colour.to_s
-    @range = BitmapRange.new(column.to_i, row.to_i, column.to_i, row.to_i)
+    column = column.to_i
+    row = row.to_i
+    @range = BitmapRange.new(column, row, column, row)
   end
 
   def execute(bitmap = NilBitmap.new)
