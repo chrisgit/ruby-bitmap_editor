@@ -6,6 +6,7 @@ describe Create do
       it_behaves_like 'class requires exact parameters', ['3', '5']
 
       context 'column value' do
+
         context 'less than 1' do
           it 'throws ArgumentError' do
             parameters = 'I 0 5'.split[1..-1]

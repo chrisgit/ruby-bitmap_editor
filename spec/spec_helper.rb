@@ -1,6 +1,7 @@
 require 'bitmap_editor'
 require 'support/bitmaptesthelper'
 require 'shared/parameters'
+require 'shared/bitmap'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

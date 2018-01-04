@@ -9,6 +9,8 @@ describe NilBitmap do
     end
   end
 
+  it_behaves_like 'bitmap'
+
   describe '#dump' do
     it 'returns "There is no image"' do
       expect(bitmap.dump).to eq('There is no image')
