@@ -6,13 +6,11 @@ describe BitmapRange do
       it_behaves_like 'class requires exact parameters', [1, 1, 250, 250]
 
       context 'end values before start' do
-        it 'transposes value' do
-          range = BitmapRange.new(249,250,1,2)
-          expect(range.start_column).to eq(1)
-          expect(range.start_row).to eq(2)
-          expect(range.end_column).to eq(249)
-          expect(range.end_row).to eq(250)
-        end
+        subject { BitmapRange.new(249,250,1,2) }
+        it { is_expected.to have_attributes(:start_column => 1) }
+        it { is_expected.to have_attributes(:end_column => 249) }
+        it { is_expected.to have_attributes(:start_row => 2) }
+        it { is_expected.to have_attributes(:end_row => 250) }
       end
     end
   end
