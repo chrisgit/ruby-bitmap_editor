@@ -24,7 +24,7 @@ end
 shared_examples 'file is invalid' do |file|
   context file || 'nil' do
     it 'returns "please provide correct file" message' do
-      expect { BitmapEditor.new.run(file) }.to output(/please provide correct file/).to_stdout
+      expect { bitmap_editor.run(file) }.to output(/please provide correct file/).to_stdout
     end
   end
 end

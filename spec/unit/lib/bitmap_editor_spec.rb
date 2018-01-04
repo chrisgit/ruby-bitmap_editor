@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe BitmapEditor do
+  let(:bitmap_editor) { BitmapEditor.new }
   describe '#run' do
     it_behaves_like 'file is invalid', nil
     it_behaves_like 'file is invalid', 'examples/unit/does_not_exist.txt'
