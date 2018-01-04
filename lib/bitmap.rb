@@ -1,6 +1,6 @@
 # Class to represent a bitmap
 class Bitmap
-  attr_reader :range, :columns, :rows
+  attr_reader :columns, :rows
   def initialize(columns, rows)
     @columns = columns
     @rows = rows
