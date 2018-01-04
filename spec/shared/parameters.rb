@@ -12,7 +12,8 @@ shared_examples 'class requires exact parameters' do |params|
   end
   context 'too many passed' do
     it 'throws ArgumentError' do
-      expect { described_class.new(*params) }.to raise_error(ArgumentError)
+      too_many_params = params << 'extra'
+      expect { described_class.new(*too_many_params) }.to raise_error(ArgumentError)
     end
   end
   context 'exact number passed' do

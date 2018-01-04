@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Colour do
   describe '#initialize' do
     context 'parameters' do
-      it_behaves_like 'class requires exact parameters', ['3', '5', 'C', 'Hello']
+      it_behaves_like 'class requires exact parameters', ['3', '5', 'C']
     end
   end
 

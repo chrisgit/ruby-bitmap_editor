@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Clear do
   describe '#initialize' do
     context 'parameters' do
-      it_behaves_like 'class requires exact parameters', ['5']
+      it_behaves_like 'class requires exact parameters', []
     end
   end
 

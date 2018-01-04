@@ -3,7 +3,7 @@ require 'spec_helper'
 describe HorizontalLine do
   describe '#initialize' do
     context 'parameters' do
-      it_behaves_like 'class requires exact parameters', ['1', '3', '4', 'Z', 'Hello']
+      it_behaves_like 'class requires exact parameters', ['1', '3', '4', 'Z']
     end
   end
 

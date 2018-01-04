@@ -5,7 +5,7 @@ require 'pry'
 describe BitmapRange do
   describe '#initialize' do
     context 'parameters' do
-      it_behaves_like 'class requires exact parameters', [1, 1, 250, 250, 'Hello']
+      it_behaves_like 'class requires exact parameters', [1, 1, 250, 250]
 
       context 'end values before start' do
         it 'transposes value' do
