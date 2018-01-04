@@ -13,7 +13,8 @@ require_relative 'commands/vline'
 # Bitmap editor, read editing instructions from file
 class BitmapEditor
   def initialize()
-    load_editor_commands
+    @commands = load_editor_commands
+    @commands.default = Unknown
   end
 
   def run(file)
@@ -29,7 +30,7 @@ class BitmapEditor
   private
 
   def load_editor_commands
-    @commands = {
+    {
       'S' => Show,
       'I' => Create,
       'C' => Clear,
@@ -37,7 +38,6 @@ class BitmapEditor
       'H' => HorizontalLine,
       'V' => VerticalLine
     }
-    @commands.default = Unknown
   end
 
   def run_command(line, bitmap)
