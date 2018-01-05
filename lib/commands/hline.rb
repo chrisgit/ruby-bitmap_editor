@@ -11,8 +11,7 @@ class HorizontalLine
     @range = BitmapRange.new(start_column, row, end_column, row)
   end
 
-  def execute(bitmap = NilBitmap.new)
-    bitmap ||= NilBitmap.new
+  def execute(bitmap)
     bitmap.draw(@range, @colour)
   end
 end

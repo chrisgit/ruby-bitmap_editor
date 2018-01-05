@@ -11,7 +11,7 @@ describe HorizontalLine do
     context 'bitmap is null' do
       it 'throws ArgumentError' do
         command = HorizontalLine.new(*['1', '5', '5', 'Z'])
-        expect { command.execute(nil) }.to raise_error(ArgumentError)
+        expect { command.execute(NilBitmap.new) }.to raise_error(ArgumentError)
       end
     end
     context 'bitmap is not null' do
