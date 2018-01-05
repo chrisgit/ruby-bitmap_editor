@@ -11,7 +11,7 @@ describe Show do
     context 'bitmap is null' do
       it 'returns "There is no image"' do
         command = Show.new
-        expect { command.execute(nil) }.to output(/There is no image/).to_stdout
+        expect { command.execute(NilBitmap.new) }.to output(/There is no image/).to_stdout
       end
     end
     context 'bitmap is not null' do

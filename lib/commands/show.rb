@@ -3,8 +3,7 @@
 class Show
   def initialize(); end
 
-  def execute(bitmap = NilBitmap.new)
-    bitmap ||= NilBitmap.new
+  def execute(bitmap)
     puts bitmap.dump
   end
 end
