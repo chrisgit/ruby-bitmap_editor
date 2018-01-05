@@ -10,8 +10,7 @@ class Colour
     @range = BitmapRange.new(column, row, column, row)
   end
 
-  def execute(bitmap = NilBitmap.new)
-    bitmap ||= NilBitmap.new
+  def execute(bitmap)
     bitmap.draw(@range, @colour)
   end
 end

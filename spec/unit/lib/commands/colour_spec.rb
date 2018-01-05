@@ -11,7 +11,7 @@ describe Colour do
     context 'bitmap is null' do
       it 'throws ArgumentError"' do
         command = Colour.new(*['5', '6', 'C'])
-        expect { command.execute(nil) }.to raise_error(ArgumentError)
+        expect { command.execute(NilBitmap.new) }.to raise_error(ArgumentError)
       end
     end
     context 'bitmap is not null' do
