@@ -16,10 +16,6 @@ class NilBitmap
     raise ArgumentError, 'Draw: Bitmap has not been created'
   end
 
-  def colour_pixel(_, _, _)
-    raise ArgumentError, 'Colour: Bitmap has not been created'
-  end
-
   def dump
     'There is no image'
   end

@@ -15,12 +15,6 @@ describe NilBitmap do
     end
   end
 
-  describe '#colour_pixel' do
-    it 'throws ArgumentError"' do
-      expect { bitmap.colour_pixel(1, 1, 'O') }.to raise_error(ArgumentError)
-    end
-  end
-
   describe '#clear' do
     it 'throws ArgumentError"' do
       expect { bitmap.clear }.to raise_error(ArgumentError)
