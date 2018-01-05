@@ -10,8 +10,7 @@ class VerticalLine
     @range = BitmapRange.new(column, start_row, column, end_row)
   end
 
-  def execute(bitmap = NilBitmap.new)
-    bitmap ||= NilBitmap.new
+  def execute(bitmap)
     bitmap.draw(@range, @colour)
   end
 end
